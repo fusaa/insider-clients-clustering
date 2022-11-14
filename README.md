@@ -50,8 +50,15 @@ The goal is to extract clusters that best fit the RFM(Recency, Frequency, Moneta
 # The jupyter notebook
 ---
 # 1 - Data preparation
-Data provided a set of features like:
-- InvoiceNo - StockCode - Description - Quantity - InvoiceDate - UnitPrice - CustomerID - Country
+Data provided a set of features like:  
+- InvoiceNo  
+- StockCode  
+- Description  
+- Quantity  
+- InvoiceDate  
+- UnitPrice  
+- CustomerID  
+- Country
 
 Checked data, NAs, adjusted column names, checked numerical and categorical attributes. Also changed variable types.
 
