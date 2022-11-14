@@ -51,14 +51,7 @@ The goal is to extract clusters that best fit the RFM(Recency, Frequency, Moneta
 ---
 # 1 - Data preparation
 Data provided a set of features like:
-- InvoicNo
-- StockCode
-- Description
-- Quantity
-- InvoiceDate
-- UnitPrice
-- CustomerID
-- Country
+- InvoiceNo - StockCode - Description - Quantity - InvoiceDate - UnitPrice - CustomerID - Country
 
 Checked data, NAs, adjusted column names, checked numerical and categorical attributes. Also changed variable types.
 
@@ -105,30 +98,74 @@ Features Created:
 Since this is a clustering problem, some tests were conducted in order to find a model that would proper suit to group customers together based on feature distances. 
 
 - PCA itself did not show clear evidence of clusters.
-- UMAP the precision of the groups were not satisfatory.
-- t-SNE was able to show some improvement, but not the best.
+![image](https://user-images.githubusercontent.com/66756007/201725910-8f755e34-ea3d-45be-aa39-97e2d6386990.png)
 
-Embedding the space using RandomForestRegressor and performing a dimensionality reduction with UMAP afterwards has led to the best cluster grouping on visual inspection.
+- UMAP the precision of the groups were not satisfatory.
+![image](https://user-images.githubusercontent.com/66756007/201726170-49bf3904-af59-496d-8ca8-220162a2dc0c.png)
+
+- t-SNE was able to show some improvement.
+![image](https://user-images.githubusercontent.com/66756007/201726435-11cbfdc4-334f-4f66-9af6-e4234d342dda.png)
+
+
+- Embedding the space using RandomForestRegressor and performing a dimensionality reduction with UMAP afterwards has led to the best cluster grouping on visual inspection.
+![image](https://user-images.githubusercontent.com/66756007/201726942-2768c7fa-c14d-48ee-808e-7bb9289c3a8c.png)
+
+
 
 # 6 Feature Selection
-Once working with the embedded space that ForestRegressor generated and applying dimensionality reduction, there is now no features to be selected.
+Once we got the 2 dimensional space set by the Forest Regressor followed by UMAP reduction, this part becomes no longer needed.
 
 # 7 Hyperparameter Fine-tuning
 Several algorithms were checked and Silhouette Scores as well WSS compared:
-- KMeans
-- GMM
-- Hierarchical Clustering
-- DBScan
+- KMeans  
+![image](https://user-images.githubusercontent.com/66756007/201727403-eb16a19e-53c6-4074-9c0d-e13508a05f3e.png)
 
-The results were compared, however for this kind of problem where we seek to find the best way to group customers while having a proper number of clusters that is manageable for business teams, we opted for a K of 11. It is now the best, however it is still good as it gives an acceptable Silhoutte Score and WSS. On this first cycle KMeans was chosen for the final model, however Hierarchical Clustering seems like the preferable choice for a next review cycle on this project.
+- GMM  
+![image](https://user-images.githubusercontent.com/66756007/201727480-74aac1b1-1f5d-460b-9fc3-8ac75e37179e.png)
+
+- Hierarchical Clustering  
+![image](https://user-images.githubusercontent.com/66756007/201727849-208b3061-2e77-47f4-a0e5-908cd6409816.png)  
+![image](https://user-images.githubusercontent.com/66756007/201727949-a3aa1230-53d5-4000-ba9f-a427f1e6a0af.png)  
+![image](https://user-images.githubusercontent.com/66756007/201728246-c3bfad91-07f8-430b-9afa-2eb3161489af.png)  
+
+
+- DBScan  
+- With DB Scan adjusting the parameters was achieved a k = 15 with a reasonable Silhouette Score.   
+![image](https://user-images.githubusercontent.com/66756007/201728500-018102df-55a7-4c51-8baf-cef962292078.png) 
+
+The results were compared, for this kind of problem where we seek to find the best way to group customers while having a proper number of clusters that is manageable by business teams, we opted for a K of 11. It is not the best, however it is still good as it gives an acceptable Silhoutte Score and WSS. On this first cycle KMeans was chosen for the final model, however Hierarchical Clustering seems like the preferable choice for a next review cycle on this project.
 
 # 8 Model Training
 KMeans model with k = 11 clusters, embedded space(ForestRegressor followed by UMAP reduction).
 WSS Value was 17223.31 while Silhoutte Score 0.6153.
 
 # 9 Cluster Analysis
+![image](https://user-images.githubusercontent.com/66756007/201731695-132ee934-21d2-43d5-a33d-e26d82bb66ab.png)
+![image](https://user-images.githubusercontent.com/66756007/201731774-17eb0e88-9112-41a4-ac7e-43b4d898e501.png)
 
-Looking at the final results for the groups, it makes sense:
+![image](https://user-images.githubusercontent.com/66756007/201731861-17e7d1e3-de8b-4a18-845d-ce94b32dfaf2.png)
+
+In order to name the customer we plotted a simple graph abstracting from the RFM model, where it is possible to compare cluster position taking in account the RFM schema plot previously displayed.  
+![image](https://user-images.githubusercontent.com/66756007/201732215-10cd9251-3de4-4660-b81f-b015b4b4304d.png)
+
+
+# Business Questions
+## Who are the prople elegible for the insiders program?
+38 customers, customers ID:  
+![image](https://user-images.githubusercontent.com/66756007/201732698-bf6ca192-22f0-476f-9db6-8de750992201.png)
+
+## Main characteristics of the insiders Group:
+
+![image](https://user-images.githubusercontent.com/66756007/201732778-f9271335-a5bb-4eef-b20d-0d98cbdbf825.png)
+
+## Gross Revenue and % of customers in each group:
+
+![image](https://user-images.githubusercontent.com/66756007/201732913-af94048f-5311-4785-b135-e764bc7b91c1.png)
+
+# Deploy
+
+
+
 
 
 
