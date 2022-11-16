@@ -1,7 +1,7 @@
 # Insiders VIP Clients
 
 # Situation  
-This project refers to an online retailer/wholesaler that sells through an e-commerce platform. The aim is to create a VIP club for important customers with access to extra perks. Customers will be selected according to the frequency and amount they buy. This program will be called “Insiders”. Using advanced data manipulation techniques, customers will be grouped(clustered) according to similarities.
+This project refers to an online retailer/wholesaler that sells through an e-commerce platform. The aim is to create a VIP club for important customers with access to extra perks. Customers will be selected according to the frequency and amount they buy. This program will be called “Insiders”. Using advanced data manipulation techniques, customers will be grouped(clustered) according to similarities. You can jump right into the notebook by clicking [here](https://github.com/fusaa/insider-clients-clustering/blob/main/notebooks/c0.8%20-%20notebook.ipynb).
 
 # Problem
 Segment customers according to shared characteristics to identify a group relevant in revenue for marketing actions.
