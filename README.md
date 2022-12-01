@@ -187,9 +187,10 @@ Metabase data visualisation connects to the AWS PostgreSQL server and generates 
 
 EC2 instance gets Jupyter notebook updates through GitHub with a simple pull request, allowing developers to work on notebook updates and have them sent to GitHub with a straightforward push request from their workstation.
 
-Due to limitations of AWS EC2 free-tier, the deployment notebook has been severely commented out to the essential to run in the free-tier instance.
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/66756007/202184854-d0981c47-4fed-4770-9cd9-8615e8e5620c.gif)
+
+Click [HERE](https://github.com/fusaa/insider-clients-clustering/blob/main/notebooks/c0.8%20-%20notebook.ipynb) for the complete jupyter notebook.
 
 
 
